@@ -1,57 +1,49 @@
-/*
- * 🚨 WARNING: CHALLENGE MODE ACTIVATED 🚨
- * 
- * 1️⃣ Sit back, take a deep breath, and **THINK**.
- * 2️⃣ For the next **10 minutes**, avoid using **Gen AI, ChatGPT, or any shortcuts**.
- * 3️⃣ Trust your **brain**—you’re smarter than you think!
- * 4️⃣ Consider yourself a **LOSER** if you cheat. Seriously, promise yourself you won't. 😤
- * 5️⃣ If you solve it on your own, **you WIN** and level up as a true programmer and come and meet me ! 
- * 
- * 
- * 💡 Remember: The best coders aren’t the ones who copy-paste. They are the ones who **struggle, think, fail, and then succeed.** 
- *    
- * Now, write your code! You got this! 💪🔥
- */
-
 #include <stdio.h>
 
-#define MAX_ROOMS 5  //  max number of rooms
+void controlLights(int *status) {
+    *status = !(*status);
+    printf("Lights turned %s.\n", *status ? "ON" : "OFF");
+}
 
-// Function prototypes
-void initializeSystem();
-void displayMenu();
-void controlLights();
-void readTemperature();
-void detectMotion();
-void securitySystem();
-void analyzeHouseStatus();
+void controlFan(int *status) {
+    *status = !(*status);
+    printf("Fan turned %s.\n", *status ? "ON" : "OFF");
+}
+
+void controlAlarm(int *status) {
+    *status = !(*status);
+    printf("Security Alarm turned %s.\n", *status ? "ON" : "OFF");
+}
 
 int main() {
+    int choice;
+    int lightStatus = 0, fanStatus = 0, alarmStatus = 0;
     
-
+    while (1) {
+        printf("\nSmart Home Automation System\n");
+        printf("1. Control Lights\n");
+        printf("2. Control Fan\n");
+        printf("3. Control Security Alarm\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        
+        switch (choice) {
+            case 1:
+                controlLights(&lightStatus);
+                break;
+            case 2:
+                controlFan(&fanStatus);
+                break;
+            case 3:
+                controlAlarm(&alarmStatus);
+                break;
+            case 4:
+                printf("Exiting Smart Home Automation System.\n");
+                return 0;
+            default:
+                printf("Invalid choice! Please enter a valid option.\n");
+        }
+    }
     return 0;
-}
-
- 
-void initializeSystem() {
-  
-}
-
-void displayMenu() {
-   
-}
-void controlLights() {
-
-}
-void readTemperature() {
-
-}
-void detectMotion() {
-
-}
-void securitySystem() {
-
-}
-void analyzeHouseStatus() {
-
 }
